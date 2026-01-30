@@ -4,8 +4,13 @@ import { ICustomize } from "./customize.interface";
 import { CustomizeModel } from "./customize.model";
 import { Types } from "mongoose";
 import QueryBuilder from "../../../builder/QueryBuilder";
+import { UserModel } from "../User/user.model";
 
 const createCustomize = async (payload: ICustomize) => {
+  const isUserExist = await UserModel.findById(payload.requestedBy);
+  if (!isUserExist) {
+    throw new AppError(HttpStatus.NOT_FOUND, "User not found");
+  }
   const result = await CustomizeModel.create(payload);
   return result;
 };
