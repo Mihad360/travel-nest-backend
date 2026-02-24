@@ -29,7 +29,7 @@ const userSchema = new Schema<IUser, UserInterface>(
       type: String,
     },
     profileImage: {
-      type: profileImageSchema,
+      type: String,
     },
     role: {
       type: String,

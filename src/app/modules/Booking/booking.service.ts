@@ -7,6 +7,7 @@ import { UserModel } from "../User/user.model";
 import QueryBuilder from "../../../builder/QueryBuilder";
 
 const createBooking = async (payload: IBooking) => {
+  console.log(payload);
   const isUserExist = await UserModel.findById(payload.user);
   if (!isUserExist) {
     throw new AppError(HttpStatus.NOT_FOUND, "User not found");

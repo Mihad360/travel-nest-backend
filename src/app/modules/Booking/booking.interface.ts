@@ -9,7 +9,7 @@ export type TBookingStatus =
 export type TPaymentStatus = "unpaid" | "paid" | "refunded";
 
 export interface IBooking {
-  user: Types.ObjectId;
+  user?: Types.ObjectId;
 
   package?: Types.ObjectId;
   customize?: Types.ObjectId;
